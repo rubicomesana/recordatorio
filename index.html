@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Recordatorios de Medicamentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+    <!-- Firebase Cloud Messaging -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-messaging.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container form-container">
+            <h1>App de Recordatorios de Medicamentos</h1>
+            <div class="form-group">
+                <label for="medication-name">Nombre del medicamento</label>
+                <input type="text" id="medication-name" placeholder="Nombre del medicamento">
+            </div>
+            <div class="form-group">
+                <label for="medication-dosage">Dosis/Cantidad</label>
+                <input type="text" id="medication-dosage" placeholder="Dosis/Cantidad">
+            </div>
+            <div class="form-group">
+                <label for="reminder-interval">Intervalo de horas</label>
+                <input type="number" id="reminder-interval" placeholder="Intervalo de horas">
+            </div>
+            <div class="form-group">
+                <label for="start-time">Hora de inicio</label>
+                <input type="time" id="start-time">
+            </div>
+            <div class="form-group">
+                <label for="medication-type">Tipo de medicamento</label>
+                <select id="medication-type" onchange="toggleDurationField()">
+                    <option value="cronic">Crónico</option>
+                    <option value="occasional">Ocasional</option>
+                </select>
+            </div>
+            <div class="form-group" id="duration-group" style="display:none;">
+                <label for="medication-duration">Duración (en días)</label>
+                <input type="number" id="medication-duration" placeholder="Duración en días">
+            </div>
+            <div class="form-group">
+                <label for="notifications">¿Deseas recibir notificaciones?</label>
+                <select id="notifications" onchange="toggleNotifications()">
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <button onclick="addReminder()">Añadir</button>
+        </div>
+        <div class="container list-container">
+            <h2>Medicamentos Crónicos</h2>
+            <ul id="chronic-medications-list"></ul>
+        </div>
+        <div class="container list-container">
+            <h2>Medicamentos Ocasionales</h2>
+            <ul id="occasional-medications-list"></ul>
+        </div>
+    </div>
+    
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>¿Estás seguro de que deseas eliminar este medicamento?</p>
+            <button onclick="confirmDeletion()">Sí</button>
+            <button onclick="closeModal()">No</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

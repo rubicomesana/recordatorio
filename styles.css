@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdfdfd;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    gap: 40px; /* Aumentar espacio entre los elementos principales */
+}
+
+@media (min-width: 768px) {
+    .main-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px; /* Aumentar el relleno del contenedor */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    text-align: left;
+    gap: 20px; /* Añadir espacio dentro del contenedor */
+}
+
+.container:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+    order: 1;
+}
+
+.list-container {
+    order: 2;
+}
+
+@media (min-width: 768px) {
+    .form-container {
+        order: 1;
+    }
+    .list-container {
+        order: 2;
+        width: 45%;
+    }
+}
+
+h1, h2 {
+    color: #333;
+    font-family: 'Georgia', serif;
+    margin-bottom: 30px; /* Aumentar espacio debajo de los títulos */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px; /* Aumentar más espacio debajo de cada grupo de formularios */
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; /* Añadir más espacio debajo de las etiquetas */
+}
+
+input, select {
+    width: calc(100% - 80px); /* Reducir el ancho para dejar más espacio a la derecha */
+    padding: 15px; /* Relleno del input */
+    margin-bottom: 20px; /* Margen inferior del input */
+    margin-left: 20px; /* Añadir margen a la izquierda de los inputs */
+    margin-right: 60px; /* Añadir más margen a la derecha de los inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    display: block;
+}
+
+input:focus, select:focus {
+    border-color: #ffc0cb; /* Pastel Pink */
+    outline: none;
+}
+
+button {
+    padding: 15px 30px; /* Relleno del botón */
+    border: none;
+    background-color: #ffc0cb; /* Pastel Pink */
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px; /* Espacio superior */
+    display: block; /* Alinear el botón al centro */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #ffa6b9; /* Slightly darker pastel pink */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px; /* Espacio superior */
+}
+
+li {
+    padding: 15px; /* Relleno de los elementos de la lista */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Margen inferior de los elementos de la lista */
+    transition: background-color 0.3s ease;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilos para el modal de confirmación */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px; 
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
